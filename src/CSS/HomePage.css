@@ -1,0 +1,59 @@
+body{
+    background-image: url('gadget.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 730px;
+}
+h1{
+    text-align: center;
+    color: white;
+    position: absolute; left: 19%;
+}
+p{
+    text-align: center;
+    color: white;
+    position: absolute; left: 19%; top: 80px;
+}
+h5{
+    text-align: center;
+    color: white;
+    position: absolute; left: 19%; top: 120px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1px;
+    width: 16%;
+    background-color: #cecccc;
+    position: absolute; top: 20px;left: 20px;
+    height: 95%;
+    overflow: auto;
+}
+
+li{
+    display: contents;
+    border: 2px solid #ccc;
+
+    outline: auto;
+}
+li a {
+    width: 80%;
+    height: 40px;
+    display: inline-block; 
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 8px 10px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    border: none;
+}
+
+button {
+    text-align: center;
+    font-size: 20px;
+    position: absolute; left: 94%; top: 20px;
+    background-color: rgb(17, 169, 235);
+    
+}
+
