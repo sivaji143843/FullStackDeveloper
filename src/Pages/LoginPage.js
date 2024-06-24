@@ -1,6 +1,7 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import '../CSS/LoginPage.css'
 import { FaUser, FaLock } from "react-icons/fa";
+
 
 class LoginPage extends Component{
   

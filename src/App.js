@@ -1,15 +1,12 @@
 import './App.css';
 
-// import LoginPage from './Pages/LoginPage'
-// import HomePage from './Pages/HomePage'
-import Product from './Pages/Product'
+import Layout from '../src/Pages/Layout';
+
 
 function App() {
   return (
     <div>
-    {/* <LoginPage/> */}
-    {/* <HomePage/> */}
-    <Product/>
+    <Layout/>
     </div>
   );
 }

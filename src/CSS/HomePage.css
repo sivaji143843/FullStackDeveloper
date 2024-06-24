@@ -7,17 +7,17 @@ body{
 h1{
     text-align: center;
     color: white;
-    position: absolute; left: 19%;
+    position: absolute; left: 18%;
 }
 p{
     text-align: center;
     color: white;
-    position: absolute; left: 19%; top: 80px;
+    position: absolute; left: 14%; top: 80px;
 }
 h5{
     text-align: center;
     color: white;
-    position: absolute; left: 19%; top: 120px;
+    position: absolute; left: 14%; top: 120px;
 }
 ul {
     list-style-type: none;

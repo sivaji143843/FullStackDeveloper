@@ -17,7 +17,7 @@ class HomePage extends Component{
                         <li><a href="/customers">Customers</a></li>
                         <li><a href="/suppliers">Suppliers</a></li>
                         <li><a href="/sales">Sales</a></li>
-                        <li><a href="/purcgase">Purchase</a></li>
+                        <li><a href="/purchase">Purchase</a></li>
                         <li><a href="users">Users</a></li>
                         <li><a href="userlogs">UserLogs</a></li>
                     </ul>

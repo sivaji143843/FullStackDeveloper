@@ -1,7 +1,8 @@
-import { Component } from "react";
-import '../CSS/HomePage.css'
+import React, { Component } from "react";
+import '../CSS/Product.css'
 import axios from "axios";
-class Product extends Component{
+
+ class Product extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -25,7 +26,7 @@ class Product extends Component{
         });
     }
         async componentDidMount(){
-            const response = await axios.get('http://localhost:8080/products/getAllProducts');
+            const response = await axios.get('http://localhost:8090/products/getAllProducts');
             console.log(response.data);
             this.setState(()=>({
                 products:response.data
@@ -37,7 +38,7 @@ class Product extends Component{
             const productData = { productName, quantity,costPrice,sellingPrice, productBrand};
             try {
                 console.log(productData);
-                const response = await axios.post('http://localhost:8080/products/addProduct',productData);
+                const response = await axios.post('http://localhost:8090/products/addProduct',productData);
             
                 if (response.status===200) {
                     alert(response.data);
@@ -70,7 +71,6 @@ class Product extends Component{
     render(){
         return(
             <div>
-                <h1>Product Details</h1>
                 <div className="buttom">
                     <ul>
                         <li><a href="/home">Home</a></li>
@@ -84,23 +84,76 @@ class Product extends Component{
                         <li><a href="userlogs">UserLogs</a></li>
                     </ul>
                 </div>
-                <div className="table-container">
-                    <table>
-                        <tr>
-                            <th>PRODUCT_CODE</th>
-                            <th>PRODUCT_NAME</th>
-                            <th>COST_PRICE</th>
-                            <th>SELL_PRICE</th>
-                            <th>BRAND</th>
-                        </tr>
-                    </table>
+                <div><h1>Product Details</h1>
+                <div id = {"product-container"}>   
+                    <div className="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT_CODE</th>
+                                    <th>PRODUCT_NAME</th>
+                                    <th>COST_PRICE</th>
+                                    <th>SELL_PRICE</th>
+                                    <th>BRAND</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.products.map(product => (
+                                    <tr key = {product.id}>
+                                        <td>{product.productCode}</td>
+                                        <td>{product.productName}</td>
+                                        <td>{product.costPrice}</td>
+                                        <td>{product.sellingPrice}</td>
+                                        <td>{product.productBrand}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 </div>
                 <div>
                     <button className="signout">Signout</button>
                 </div>
+            <div id={"add-product-container"}>
+                <div>
+                    <h4>{this.state.message}</h4>
+                    <h2> Add Product</h2>
+                </div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className={"add-product-input"}>
+                        <div className={"add-product-details"}>
+                            <label htmlFor={"productName"}> Product Name:</label>
+                            <input type={"text"} name={"productName"} id={"productName"} placeholder="Enter Product Name" onChange={this.handleChange} required />
+                        </div>
+                        <div className={"add-product-details"}>
+                            <label htmlFor={"quantity"}>Quantity: </label>
+                            <input type={"text"} id={"quantity"} name={"quantity"} className={"quantity"} placeholder="Enter Quantity" onChange={this.handleChange} required />
+                        </div>
+                        <div className={"add-product-details"}>
+                            <label htmlFor={"costPrice"}>Cost Price: </label>
+                            <input type={"text"} id={"costPrice"} name={"costPrice"} className={"costPrice"} placeholder="Enter Cost Price" onChange={this.handleChange} required />
+                            </div>
+                        <div className={"add-product-details"}>
+                            <label htmlFor={"sellingPrice"}>Selling Price: </label>
+                            <input type={"text"} id={"sellingPrice"} name={"sellingPrice"} className={"sellingPrice"} placeholder="Enter Selling Price" onChange={this.handleChange} required />
+                        </div>
+                        <div className={"add-product-details"}>
+                            <label htmlFor={"productBrand"}>Brand: </label>
+                            <input type={"text"} id={"productBrand"}name={"productBrand"}  className={"productBrand"} placeholder="Enter Brand Name" onChange={this.handleChange} required />
+                        </div>
+                       
+                        </div>
+                        </form>
+                        <div id={"add-product-login"}>
+                            <div id={"add-product-login-button"}>
+                                <button name={"add-product"}>Add Product</button>
+                            </div>
+                        </div>
             </div>
+            </div>  
         )
-    }
-}
+    }    
 
+ }
 export default Product;
